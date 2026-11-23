@@ -65,11 +65,11 @@ public class ConsolaView {
         System.out.println("""
 
                 --- MASCOTAS ---
-                1. [C] Registrar mascota
-                2. [R] Listar mascotas
-                3. [R] Consultar una mascota por id
-                4. [U] Reemplazar una mascota
-                5. [D] Eliminar una mascota
+                1.  Registrar mascota
+                2.  Listar mascotas
+                3.  Consultar una mascota por id
+                4.  Reemplazar una mascota
+                5.  Eliminar una mascota
                 0. Volver""");
         return leerEntero("Opción: ");
     }
@@ -83,11 +83,11 @@ public class ConsolaView {
         System.out.println("""
 
                 --- CITAS ---
-                1. [C] Registrar cita
-                2. [R] Listar citas
-                3. [R] Consultar una cita por id
-                4. [U] Reemplazar una cita
-                5. [D] Eliminar una cita
+                1.  Registrar cita
+                2.  Listar citas
+                3.  Consultar una cita por id
+                4.  Reemplazar una cita
+                5.  Eliminar una cita
                 6.     Filtrar citas por estado
                 0. Volver""");
         return leerEntero("Opción: ");
