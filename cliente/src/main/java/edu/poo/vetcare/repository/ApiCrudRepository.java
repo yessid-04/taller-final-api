@@ -10,6 +10,9 @@ import java.util.List;
  */
 public abstract class ApiCrudRepository<T> implements CrudRepository<T> {
 
+    /** Parámetro que pide a la API el máximo de registros por consulta (su tope es 100). */
+    protected static final String LIMITE = "limit=100";
+
     /** Cliente HTTP compartido. */
     protected final ApiClient apiClient;
 
@@ -34,7 +37,7 @@ public abstract class ApiCrudRepository<T> implements CrudRepository<T> {
 
     @Override
     public List<T> listar() {
-        return apiClient.obtenerLista(recurso, tipo);
+        return apiClient.obtenerLista(recurso + "?" + LIMITE, tipo);
     }
 
     @Override

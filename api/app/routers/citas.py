@@ -6,9 +6,11 @@ from fastapi import APIRouter, HTTPException, Query, status
 from sqlmodel import Session, select
 
 from app.database import SessionDep
-from app.models import Cita, CitaCreate, CitaPublic, Mascota
+from app.models import ESTADOS_VALIDOS, Cita, CitaCreate, CitaPublic, Mascota
 
 router = APIRouter(prefix="/citas", tags=["Citas"])
+
+PATRON_ESTADO = "^(" + "|".join(ESTADOS_VALIDOS) + ")$"
 
 
 def obtener_cita_o_404(cita_id: int, session: Session) -> Cita:
@@ -37,7 +39,7 @@ def listar_citas(
     estado: Annotated[
         str | None,
         Query(
-            pattern="^(pendiente|atendida|cancelada)$",
+            pattern=PATRON_ESTADO,
             description="Filtra por estado: pendiente, atendida o cancelada",
         ),
     ] = None,

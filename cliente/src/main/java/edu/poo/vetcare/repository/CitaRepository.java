@@ -27,6 +27,6 @@ public class CitaRepository extends ApiCrudRepository<Cita> {
      */
     public List<Cita> listarPorEstado(String estado) {
         String valor = URLEncoder.encode(estado, StandardCharsets.UTF_8);
-        return apiClient.obtenerLista(recurso + "?estado=" + valor, Cita.class);
+        return apiClient.obtenerLista(recurso + "?estado=" + valor + "&" + LIMITE, Cita.class);
     }
 }
